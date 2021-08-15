@@ -1,0 +1,11 @@
+.Outline{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    border: solid;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #808080;
+    color: white;
+    align-items: center;
+}

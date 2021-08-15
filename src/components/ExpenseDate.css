@@ -1,0 +1,9 @@
+.ExpenseDate_container{
+    /* display: flex; */
+    background-color: purple;
+    width: 10%;
+    border: solid purple 2px;
+    padding: 2px;
+    border-radius: 10px;
+    color: #fff;
+}
