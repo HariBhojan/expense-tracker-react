@@ -1,29 +1,63 @@
-import React, {useState} from 'react';
-import './AddExpense.css';
+import React, { useState } from "react";
+import "./AddExpense.css";
 
+function AddExpense() {
+  const [entertedDate, addNewUserExpenseDate] = useState("");
+  const [enteredItem, addNewUserExpenseItem] = useState("");
+  const [enteredAmount, addNewUserExpenseAmount] = useState("");
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const expenseData = {
+      title: enteredItem,
+      amount: enteredAmount,
+      date: entertedDate,
+    };
+    console.log(expenseData);
+    addNewUserExpenseDate("");
+    addNewUserExpenseItem("");
+    addNewUserExpenseAmount("");
+  };
 
-function AddExpense(){
-    // const [date, addNewUserExpenseDate_handler] = useState("");
-    // const [item, addNewUserExpenseItem_handler] = useState("");
-    // const [amount, addNewUserExpenseAmount_handler] = useState("");
-    // const addNewUserExpense_Handler = ()=>{console.log("Add Clicked")};
-    const [InitialData, setNewData] = useState({
-        title: addNewUserExpenseDate_handler(event.target.value()),
-    })
-    return (<div className='container'>
-        <div>Date
-        <input type='date' 
-            onChange={(event)=> addNewUserExpenseDate_handler(event.target.value())}></input>
+  return (
+    <form onSubmit={submitHandler}>
+      <div className="container">
+        <div>
+          Date
+          <input
+            type="date"
+            value={entertedDate}
+            onChange={(event) => {
+              const newDate = event.target.value;
+              addNewUserExpenseDate(newDate);
+            }}
+          ></input>
         </div>
-        <div>Item/Title
-        <input type='text' 
-        onChange={(event)=> addNewUserExpenseItem_handler(event.target.value())}></input>
+        <div>
+          Item/Title
+          <input
+            type="text"
+            value={enteredItem}
+            onChange={(event) => {
+              const newItem = event.target.value;
+              addNewUserExpenseItem(newItem);
+            }}
+          ></input>
         </div>
-        <div>Amount Rs
-        <input type='number' onChange={(event)=> addNewUserExpenseAmount_handler(event.target.value())}></input>
+        <div>
+          Amount Rs
+          <input
+            type="number"
+            value={enteredAmount}
+            onChange={(event) => {
+              const newAmount = event.target.value;
+              addNewUserExpenseAmount(newAmount);
+            }}
+          ></input>
         </div>
-        <button type="submit" onClick={()=>addNewUserExpense_Handler= () => {setNewdata(...spreadUserInput)}}>Add</button>
-    </div>);
+        <button type="submit">Add</button>
+      </div>
+    </form>
+  );
 }
 
 export default AddExpense;
