@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddExpense.css";
 
-function AddExpense() {
+function AddExpense(props) {
   const [entertedDate, addNewUserExpenseDate] = useState("");
   const [enteredItem, addNewUserExpenseItem] = useState("");
   const [enteredAmount, addNewUserExpenseAmount] = useState("");
@@ -12,7 +12,7 @@ function AddExpense() {
       amount: enteredAmount,
       date: entertedDate,
     };
-    console.log(expenseData);
+    props.whenNewExpenseSaved(expenseData);
     addNewUserExpenseDate("");
     addNewUserExpenseItem("");
     addNewUserExpenseAmount("");
